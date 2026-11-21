@@ -1,0 +1,86 @@
+Screenshot evidence log
+01_RStudio_function_tests_and_data_folder.png
+- Shows the RStudio project working directory.
+- Shows all assignment function tests passed.
+- Shows the data folder currently contains only the placeholder file.
+- Next evidence to capture: stock CSV files added, analysis workflow run, and generated output files.
+
+02_RStudio_download_script_opened.png
+- Shows the retrieval script open in RStudio.
+- Does not yet prove the script is saved in the project R folder or that downloads completed.
+
+03_RStudio_five_stock_datasets_downloaded.png
+- Console confirms AAPL, MSFT, NVDA, AMZN, and TSLA downloaded.
+- Each dataset contains 251 daily rows.
+- Download summary reports Failed: none and SUCCESS for all five CSV files.
+
+04_RStudio_stock_CSV_files_listed.png
+- Console list.files('data') displays AAPL.csv, MSFT.csv, NVDA.csv, AMZN.csv, and TSLA.csv.
+- Placeholder text file remains in the folder; it is not a stock dataset.
+- Individual CSV content inspection is still pending.
+
+05_AAPL_head_data_preview.png
+- Shows the first six AAPL records and the seven CSV fields.
+06_AAPL_structure_check.png
+- Shows 251 observations and seven variables; Date imported as character, numeric market fields and integer Volume.
+- The analysis workflow parses Date to Date class before analysis.
+
+07_RStudio_stock_dataset_validation.png
+- Visible AMZN and TSLA summaries each report 251 rows, 7 columns, and 0 missing values.
+- Screenshot is scrolled to the bottom; it does not show the AAPL, MSFT, and NVDA summaries.
+- Combined with the earlier download log showing 251 rows for all five, the workflow's row/column/missing-value checks are documented.
+
+08_RStudio_analysis_column_validation_error.png
+- Shows run_analysis.R stopping at standardize_stock_data(file) for AAPL.csv.
+- Reported missing required fields: date, open, high, low, close, volume.
+- Analysis did not complete; inspect actual imported header names before fixing.
+
+09_RStudio_column_name_normalization_diagnosis.png
+- Shows actual CSV headers and malformed normalized names caused by filtering uppercase letters before tolower().
+- Corrected project script to lowercase first, then remove non-alphanumeric characters.
+- User must apply the same one-line fix in their local RStudio copy and rerun.
+
+10_RStudio_run_analysis_open_at_normalization_line.png
+- Shows run_analysis.R open at the original faulty normalization line.
+- Next step is to replace the expression, save, and rerun the analysis.
+
+11_RStudio_analysis_completed_for_five_stocks.png
+- Console reports processed symbols: AAPL, AMZN, MSFT, NVDA, TSLA.
+- Console reports indicator and trading-signal CSV files created in data/.
+- File contents and calculation correctness still require inspection.
+
+12_RStudio_technical_analysis_output_files_listed.png
+- Shows five original CSVs and five *_technical_analysis.csv outputs in data/.
+- Confirms file presence only; output contents and calculations still need validation.
+
+13_AAPL_output_columns.png
+- AAPL technical-analysis output has 251 observations and 17 variables; indicator and signal columns are visible.
+14_AAPL_output_signal_preview.png
+- Preview shows Sell_Signal FALSE for the first ten displayed records.
+15_AAPL_output_summary_statistics.png
+- Summary shows Buy_Signal and Sell_Signal each have 247 FALSE and 4 TRUE; StochRSI_K has 27 NAs and StochRSI_D has 29 NAs.
+- These checks apply to AAPL only; validate all five output CSVs before final claims.
+
+16_RStudio_validation_AMZN_TSLA.png
+- AMZN: 251 rows, 17 columns, 89 missing values, 4 buy signals, 4 sell signals.
+- TSLA: 251 rows, 17 columns, 89 missing values, 3 buy signals, 3 sell signals.
+- A preceding partial line shows 7 sell signals for an unidentified stock.
+- Complete five-stock summary and NA-column breakdown remain outstanding.
+
+17_RStudio_missing_value_breakdown_AAPL_MSFT_NVDA.png
+18_RStudio_missing_value_breakdown_NVDA_AMZN_TSLA.png
+- The displayed per-column NA pattern is consistent across all five symbols.
+- SMA_20: 19; RSI_14: 14; StochRSI_K: 27; StochRSI_D: 29.
+- All raw OHLCV fields, EMA/MACD fields, and buy/sell signal fields show zero NAs.
+- Total: 89 indicator warm-up NAs per stock; no imputation applied.
+
+19_RStudio_final_five_stock_validation.png
+- AAPL, MSFT, NVDA, AMZN, TSLA each: 251 rows, 17 columns, 89 missing values.
+- Confirms matching dimensions and missing-value totals across all five outputs.
+
+PACKAGE REVIEW UPDATE
+- All 19 screenshots are embedded in Assignment_Explanation.docx with individual explanations.
+- The regression test's expected intercept was corrected from 1 to 0 to match y=x and the supplied pseudocode.
+- The final packaged data folder does not contain the source or generated CSV files; restore/regenerate them before submission.
+- The repository URL placeholder remains to be replaced with the real repository URL.
+- R/Rscript was unavailable in the packaging environment; local execution of the corrected tests remains required.
