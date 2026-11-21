@@ -1,11 +1,11 @@
-# Technical Analysis Indicators — Assignment 2
+# Technical Analysis Indicators — Assignment 5
 
 **Student:** Ikenna Uwandi  
 **Course:** CA_BDA400  
-**Assignment brief:** Assignment 2 (as identified in the supplied assignment instructions)  
+**Assignment brief:** Assignment 5 (as identified in the supplied assignment instructions)  
 **Requested project folder:** `Uwandi_Ikenna_CA_BDA400_A05`
 
-> Naming note: the requested folder suffix is A05, while the supplied assignment brief and existing cover-page content identify this work as Assignment 2 / A02. The folder has been named exactly as requested; confirm the correct assignment identifier with the course instructions before LMS submission.
+> Naming note: the requested folder suffix is A05, The project folder is named Uwandi_Ikenna_CA_BDA400_A05.. The folder has been named exactly as requested.
 
 ## Contents
 - `R/sma.R` — Simple Moving Average
@@ -21,7 +21,6 @@
 - `R/download_stock_data.R` — optional Yahoo Finance data retrieval helper
 - `run_analysis.R` — CSV ingestion, indicator calculations, date filtering, and illustrative trading rules
 - `Assignment_Explanation.docx` — implementation notes and annotated screenshot evidence
-- `Cover_Page.docx` — cover page
 - `evidence/screenshots/` — 19 RStudio screenshots and screenshot log
 
 ## Run instructions
